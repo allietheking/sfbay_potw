@@ -25,7 +25,7 @@ fig_dir="../outputs/figures"
 output_dir="../outputs"
 
 date_start=datetime.datetime(2000,1,1)
-date_end  =datetime.datetime(2016,12,31)
+date_end  =datetime.datetime(2018,8,31)
 
 ## 
 
