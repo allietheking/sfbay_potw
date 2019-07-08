@@ -121,7 +121,8 @@ bay_site_names=['tesoro','american','sasm','novato','sunnyvale',
                 'south_sf','ch','treasure_island','false_sj','false_sac' ]
 delta_site_names=['davis', 'manteca', 'tracy', 'stockton', 'sac_regional',
                   'sacramento', 'san_joaquin_at_vernalis']
-site_names=bay_site_names + delta_site_names
+#site_names=bay_site_names + delta_site_names
+site_names=bay_site_names
 
 ds['site']=('site', site_names)
 
@@ -470,11 +471,11 @@ for s in ['american','sasm','novato','sunnyvale','petaluma',
 for s in ['false_sac','false_sj']:
     ds.site_type.loc[s] = 'false'
 
-for s in ['manteca','davis','tracy','stockton','sac_regional']: # Delta sources
-    ds.site_type.loc[s]='potw'
+#for s in ['manteca','davis','tracy','stockton','sac_regional']: # Delta sources
+#    ds.site_type.loc[s]='potw'
     
-for s in ['sacramento','san_joaquin_at_vernalis']:
-    ds.site_type.loc[s]='river'
+#for s in ['sacramento','san_joaquin_at_vernalis']:
+#    ds.site_type.loc[s]='river'
     
 for st in np.unique( ds.site_type.values ):
     count =np.sum(ds.site_type==st)
