@@ -1,6 +1,6 @@
 import numpy as np 
 import pandas as pd 
-from pycurrents.plot.maptools import mapper
+#from pycurrents.plot.maptools import mapper
 import matplotlib.pyplot as plt
 from stompy.io.local import usgs_nwis
 
@@ -200,7 +200,17 @@ sj_df.columns = ['Date', 'flow ft3/s', 'NH3 mg/L N', 'NO3 mg/L N', 'PO4 mg/L P']
 false_sj_new = false_sj.append(sj_df, ignore_index=True)
 false_sj_new.to_csv('../outputs/intermediate/false_sj.csv')
 
+if 0:
+    fig, ax = plt.subplots(nrows=4, sharex=True)
 
+    ax[0].plot(false_sj_new['Date'], false_sj_new['flow ft3/s'], label='Flow')
+    ax[0].legend(loc='best')
+    ax[1].plot(false_sj_new['Date'][np.isfinite(false_sj_new['NH3 mg/L N'])], false_sj_new['NH3 mg/L N'][np.isfinite(false_sj_new['NH3 mg/L N'])], label='NH3')
+    ax[1].legend(loc='best')
+    ax[2].plot(false_sj_new['Date'][np.isfinite(false_sj_new['NO3 mg/L N'])], false_sj_new['NO3 mg/L N'][np.isfinite(false_sj_new['NO3 mg/L N'])], label='NO3')
+    ax[2].legend(loc='best')
+    ax[3].plot(false_sj_new['Date'][np.isfinite(false_sj_new['PO4 mg/L P'])], false_sj_new['PO4 mg/L P'][np.isfinite(false_sj_new['PO4 mg/L P'])], label='PO4')
+    ax[3].legend(loc='best')
 
 
 
